@@ -27,16 +27,18 @@ const List = props => {
           </div>
         </div>
       ))}
-      <Modal open={open} onClose={() => setOpen(false)} center>
-        <h2>{props.movieDetail.original_title}</h2>
-        <p>
-          {props.movieDetail.overview}
-        </p>
-        <div>
-          <b>{`Genres: `}</b>
-          {props.movieDetail.genres.map(genre => <span key={genre.id}>{genre.name + ', '}</span>)}
-        </div>
-      </Modal>
+      { props.movieDetail&&
+        <Modal open={open} onClose={() => setOpen(false)} center>
+          <h2>{props.movieDetail.original_title}</h2>
+          <p>
+            {props.movieDetail.overview}
+          </p>
+          <div>
+            <b>{`Genres: `}</b>
+            {props.movieDetail.genres.map(genre => <span key={genre.id}>{genre.name + ', '}</span>)}
+          </div>
+        </Modal>
+      }
     </div>
   )
 }
