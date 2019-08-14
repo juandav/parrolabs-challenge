@@ -11,6 +11,10 @@ export const finishLoadingMovies = createAction(types.FINISH_LOADING_MOVIE)
 //@@ SEARCH MOVIE
 export const changeSearchTerm = createAction(types.CHANGE_SEARCH_TERM)
 
+//@@ FAVORITE MOVIE
+export const addFavoriteMovie = createAction(types.ADD_FAVORITE_MOVIE)
+export const removeFavoriteMovie = createAction(types.REMOVE_FAVORITE_MOVIE)
+
 //@@ DETAIL MOVIE
 export const getMovieDetail = createAction(types.GET_MOVIE_DETAIL)
 export const getMovieDetailSuccess = createAction(types.GET_MOVIE_DETAIL_SUCCESS, ({response}) => response)

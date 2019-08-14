@@ -4,9 +4,11 @@
   "private": true,
   "dependencies": {
     "@babel/helper-module-imports": "^7.0.0",
+    "immutability-helper": "^3.0.1",
     "react": "^16.9.0",
     "react-app-rewired": "^2.1.3",
     "react-dom": "^16.9.0",
+    "react-emojione": "^5.0.1",
     "react-intl": "2.9.0",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",

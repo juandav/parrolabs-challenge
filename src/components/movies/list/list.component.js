@@ -1,4 +1,5 @@
 import React from 'react'
+import { emojify } from 'react-emojione'
 
 const List = props => {
   const movies = (props.movies || []).filter(item => item.original_title.toLowerCase().includes(props.searchTerm))
@@ -13,6 +14,10 @@ const List = props => {
             <span className="movie__vote">{item.vote_average}</span>
             <hr className="movie__divider" />
             <p className="movie__description">{item.overview}</p>
+            <hr className="movie__divider" />
+            <span className="movie__favorite" onClick={props.onFavoriteClick(item.id)}>
+              { props.favorites.includes(item.id) ? emojify(':heart:') : emojify(':black_heart:') }
+            </span>
           </div>
         </div>
       ))}
