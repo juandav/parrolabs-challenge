@@ -5,7 +5,8 @@ import {
   fetchMovies, 
   changeSearchTerm,
   addFavoriteMovie,
-  removeFavoriteMovie 
+  removeFavoriteMovie,
+  getMovieDetail
 } from 'store/movies/actions'
 import Bar from 'components/movies/bar'
 import Search from 'components/movies/search'
@@ -22,12 +23,15 @@ class IndexPage extends Component {
   handleToChangeSearchTerm = e => {
     this.props.changeSearchTerm(e.target.value)
   }
-  onFavoriteClick = id => _e => {
-    if(!this.props.favoriteMovies.includes(id)) {
-      this.props.addFavoriteMovie(id)
+  onFavoriteClick = movie_id => _e => {
+    if(!this.props.favoriteMovies.includes(movie_id)) {
+      this.props.addFavoriteMovie(movie_id)
     } else {
-      this.props.removeFavoriteMovie(id)
+      this.props.removeFavoriteMovie(movie_id)
     }
+  }
+  onMovieDetail = movie_id => _e => {
+    this.props.getMovieDetail(movie_id)
   }
   render() {
     return (
@@ -41,7 +45,10 @@ class IndexPage extends Component {
             movies={this.props.movies}
             favorites={this.props.favoriteMovies}
             onFavoriteClick={this.onFavoriteClick}
+            onMovieDetail={this.onMovieDetail}
+            movieDetail={this.props.movieDetail}
           />}
+          {/** Acá seria mejor el modal, pero para efectos de usar hooks en este challenge se usara en el component List */}
       </Fragment>
     )
   }
@@ -53,15 +60,17 @@ const mapStateToProps = ({
     loading,
     searchTerm,
     favoriteMovies,
+    movieDetail,
   },
 }) => ({ 
   movies,
   loading,
   searchTerm,
   favoriteMovies,
+  movieDetail,
 })
 
 export default connect( 
   mapStateToProps, 
-  ({changeLanguage, fetchMovies, changeSearchTerm, addFavoriteMovie, removeFavoriteMovie})
+  ({changeLanguage, fetchMovies, changeSearchTerm, addFavoriteMovie, removeFavoriteMovie, getMovieDetail})
 )(IndexPage)

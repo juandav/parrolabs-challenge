@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { emojify } from 'react-emojione'
+import Modal from 'react-responsive-modal'
 
 const List = props => {
+  const [open, setOpen] = useState(false)
   const movies = (props.movies || []).filter(item => item.original_title.toLowerCase().includes(props.searchTerm))
+
   return (
     <div className="movie">
       {(movies || []).map(item => (
         <div key={item.id} className="movie__card">
-          <img className="movie__image" src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2/${item.backdrop_path}`} alt="product" />
+          <img className="movie__image" src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2/${item.backdrop_path}`} alt="product" onClick={() => {
+            props.onMovieDetail(item.id)()
+            setOpen(true)
+          }}/>
           <div className="movie__content">
             <span className="movie__name">{item.original_title}</span>
             <br />
@@ -21,6 +27,16 @@ const List = props => {
           </div>
         </div>
       ))}
+      <Modal open={open} onClose={() => setOpen(false)} center>
+        <h2>{props.movieDetail.original_title}</h2>
+        <p>
+          {props.movieDetail.overview}
+        </p>
+        <div>
+          <b>{`Genres: `}</b>
+          {props.movieDetail.genres.map(genre => <span key={genre.id}>{genre.name + ', '}</span>)}
+        </div>
+      </Modal>
     </div>
   )
 }
