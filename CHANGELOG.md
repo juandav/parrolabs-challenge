@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/juandav/parrolabs-challenge/compare/v1.0.0...v1.1.0) (2019-08-14)
+
+
+### Features
+
+* Now you can see the detail of a movie ([341e878](https://github.com/juandav/parrolabs-challenge/commit/341e878))
+
 ## 1.0.0 (2019-08-14)
 
 
