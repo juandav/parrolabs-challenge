@@ -1,0 +1,44 @@
+@import "../../../assets/styles/constants.scss";
+
+.search {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  padding: 0 2rem;
+}
+
+.search__inside {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  background-color: $grey-lighter;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  max-width: 25rem;
+}
+
+.search__icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+
+  g {
+    fill: $grey-dark;
+  }
+}
+
+.search__input {
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  padding: 0;
+  flex-grow: 1;
+  font-size: 0.875rem;
+  color: $grey-darkest;
+
+  &:focus {
+    outline: none;
+  }
+}

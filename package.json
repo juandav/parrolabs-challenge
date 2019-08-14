@@ -1,0 +1,52 @@
+{
+  "name": "parrolabs-challenge",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@babel/helper-module-imports": "^7.0.0",
+    "react": "^16.9.0",
+    "react-app-rewired": "^2.1.3",
+    "react-dom": "^16.9.0",
+    "react-intl": "2.9.0",
+    "react-redux": "^7.1.0",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.1.1",
+    "redux": "^4.0.4",
+    "redux-actions": "^2.6.5",
+    "redux-logger": "^3.0.6",
+    "redux-observable": "^1.1.0",
+    "redux-persist": "^5.10.0",
+    "universal-rxjs-ajax": "^2.0.2"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "extract:messages": "react-intl-cra 'src/**/*.{js,jsx}' -o 'src/i18n/messages/messages.json'",
+    "manage:translations": "node ./bin/translate.js",
+    "release": "standard-version",
+    "patch": "npm run release -- --release-as patch",
+    "minor": "npm run release -- --release-as minor",
+    "major": "npm run release -- --release-as major"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@babel/plugin-proposal-export-namespace-from": "^7.5.2",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "customize-cra": "^0.5.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "node-sass": "^4.12.0",
+    "react-intl-cra": "^0.3.4",
+    "react-intl-translations-manager": "^5.0.3",
+    "standard-version": "^7.0.0"
+  }
+}
